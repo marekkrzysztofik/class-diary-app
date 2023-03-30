@@ -2,8 +2,8 @@
     <div class="flex justify-content-center">
         <form @submit.prevent="submit">
             <div class="input-grid">
-                <div><h1>Register new teacher</h1></div>
-                <div v-for="input in teacherForm">
+                <div><h1>Create new subject</h1></div>
+                <div v-for="input in subjectForm">
                     <InputText
                         :name="input.name"
                         :type="input.type"
@@ -21,33 +21,22 @@
     </div>
 </template>
 <script setup lang="ts">
-import { teacherForm } from '../consts/teacherForm'
+import { subjectForm } from "../consts/subjectForm";
 import axios from "axios";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 
 const submit = (event: any) => {
-    const { name, surname, email, password, c_password } = Object.fromEntries(
-        new FormData(event.target)
-    );
-    const form = { name, surname, email, password, c_password };
-    register(form);
+    const { name, year } = Object.fromEntries(new FormData(event.target));
+    const form = { name, year };
+    console.log(form);
+    // register(form);
 };
 const router = useRouter();
-const errors = ref([]);
-const register = async (data: any) => {
-    await axios
-        .post("/api/register", data)
-        .then((response) => {
-            const registerResponse = response.data;
-            if (registerResponse.success) {
-                localStorage.setItem("token", registerResponse.data.token);
-                router.push("/");
-            }
-        })
-        .catch((e) => {
-            errors.value = e.response.data.message;
-        });
+const save = async (data: any) => {
+    await axios.post("/api/addClass", data).then(() => {
+        router.push("/");
+    });
 };
 </script>
 <style scoped>

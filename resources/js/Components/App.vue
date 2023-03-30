@@ -22,8 +22,18 @@ const items = ref([
                 },
             },
             {
-                label: "Export",
-                icon: "pi pi-fw pi-external-link",
+                label: "Add class",
+                icon: "pi pi-plus",
+                command: () => {
+                    router.push("/add-class");
+                },
+            },
+            {
+                label: "Add subject",
+                icon: "pi pi-plus",
+                command: () => {
+                    router.push("/add-subject");
+                },
             },
         ],
     },

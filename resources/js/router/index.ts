@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory, RouteRecordRaw  } from "vue-router";
 import Home from "resources/js/Components/Home.vue";
 import AddTeacher from "@/resources/modules/Teachers/components/AddTeacher.vue"
-
+import AddClass from 'resources/modules/StudentClasses/components/AddClass.vue'
+import AddSubject from 'resources/modules/Subjects/components/AddSubject.vue'
 const routes: Array<RouteRecordRaw> = [
     {
         path: "/",
@@ -16,6 +17,16 @@ const routes: Array<RouteRecordRaw> = [
       component: AddTeacher,
       name: "AddTeacher",
   },
+  {
+    path: "/add-class",
+    component: AddClass,
+    name: "AddClass",
+},
+{
+    path: "/add-subject",
+    component: AddSubject,
+    name: "AddSubject",
+},
 ];
 const router = createRouter({
     history: createWebHistory(),

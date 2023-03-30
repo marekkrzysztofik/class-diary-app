@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\ClassController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,3 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('register', [AuthController::class, 'register']);
 Route::post('handleLogin', [AuthController::class, 'handleLogin']);
+
+Route::post('/createOrUpdateClass', [ClassController::class, 'createOrUpdateClass']);

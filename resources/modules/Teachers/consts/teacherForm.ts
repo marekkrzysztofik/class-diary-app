@@ -1,8 +1,4 @@
-interface Column {
-    name: string;
-    type: string;
-    placeholder: string;
-}
+import { Column } from "../../../types/formColumns";
 
 export const teacherForm: Column[] = [
     { name: "name", type: "text", placeholder: "Name" },
