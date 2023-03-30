@@ -1,18 +1,22 @@
 <template>
-    <div class="input-grid">
+    <div class="flex justify-content-center">
         <form @submit.prevent="submit">
-            <InputText
-                v-for="input in teacherForm"
-                :name="input.name"
-                :type="input.type"
-                :placeholder="input.placeholder"
-                class="m-3"
-            />
-            <Button
-                type="submit"
-                label="Save"
-                class="p-button-rounded m-3 save-btn w-9"
-            />
+            <div class="input-grid">
+                <div><h1>Register new teacher</h1></div>
+                <div v-for="input in teacherForm">
+                    <InputText
+                        :name="input.name"
+                        :type="input.type"
+                        :placeholder="input.placeholder"
+                        class="m-3"
+                    />
+                </div>
+                <Button
+                    type="submit"
+                    label="Save"
+                    class="p-button-rounded m-3 save-btn w-9"
+                />
+            </div>
         </form>
     </div>
 </template>
