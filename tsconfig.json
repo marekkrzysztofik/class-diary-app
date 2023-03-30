@@ -10,8 +10,10 @@
     "sourceMap": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["resources/js/*"]
-    }
+      "@/*": [
+       "./*"
+      ]
+     }
   },
   "include": ["resources/js/**/*"],
   "exclude": ["node_modules"]
