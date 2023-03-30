@@ -1,5 +1,5 @@
 <template>
-    <div class="flex">
+    <div class="flex m-3">
         <PanelMenu :model="items" class="w-min" />
     </div>
     <router-view />
@@ -16,7 +16,7 @@ const items = ref([
         items: [
             {
                 label: "Add",
-                icon: "pi pi-fw pi-trash",
+                icon: "pi pi-plus",
                 command: () => {
                     router.push("/add-teacher");
                 },
