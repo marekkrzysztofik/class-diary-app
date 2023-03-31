@@ -2,7 +2,10 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\ClassController;
+use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\StudentController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,3 +20,17 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('register', [AuthController::class, 'register']);
+Route::post('handleLogin', [AuthController::class, 'handleLogin']);
+
+Route::post('/createOrUpdateClass', [ClassController::class, 'createOrUpdateClass']);
+Route::get('/getClassesByYear/{year}', [ClassController::class, 'getClassesByYear']);
+Route::get('/getClasses', [ClassController::class, 'getClasses']);
+
+
+
+Route::post('/createOrUpdateSubject', [SubjectController::class, 'createOrUpdateSubject']);
+
+
+Route::post('/createOrUpdateStudent', [StudentController::class, 'createOrUpdateStudent']);
