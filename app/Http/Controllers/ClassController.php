@@ -18,4 +18,12 @@ class ClassController extends Controller
     {
         $this->classService->createOrUpdateClass($data);
     }
+    public function getClassesByYear($year)
+    {
+        return $this->classService->getClassesByYear($year);
+    }
+    public function getClasses()
+    {
+        return $this->classService->getClasses();
+    }
 } 

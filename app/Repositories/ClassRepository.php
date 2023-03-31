@@ -11,8 +11,17 @@ class ClassRepository
     {
         $this->class = new StudentClass();
     }
+    public function getClassesByYear($year)
+    {
+        return $this->class->where('year', '=', $year)->get();
+    }
+    public function getClasses()
+    {
+        return StudentClass::all();
+    }
     public function save($class)
     {
         $class->save();
     }
 }
+ 

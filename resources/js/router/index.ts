@@ -3,6 +3,9 @@ import Home from "resources/js/Components/Home.vue";
 import AddTeacher from "@/resources/modules/Teachers/components/AddTeacher.vue"
 import AddClass from 'resources/modules/StudentClasses/components/AddClass.vue'
 import AddSubject from 'resources/modules/Subjects/components/AddSubject.vue'
+import AddActivity from 'resources/modules/Activities/components/AddActivity.vue'
+import AddStudent from 'resources/modules/Students/components/AddStudent.vue'
+
 const routes: Array<RouteRecordRaw> = [
     {
         path: "/",
@@ -13,7 +16,7 @@ const routes: Array<RouteRecordRaw> = [
         },
     },
     {
-      path: "/add-teacher",
+      path: "/add-teacher", 
       component: AddTeacher,
       name: "AddTeacher",
   },
@@ -26,6 +29,16 @@ const routes: Array<RouteRecordRaw> = [
     path: "/add-subject",
     component: AddSubject,
     name: "AddSubject",
+},
+{
+    path: "/add-activity",
+    component: AddActivity,
+    name: "AddActivity",
+},
+{
+    path: "/add-student",
+    component: AddStudent,
+    name: "AddStudent",
 },
 ];
 const router = createRouter({

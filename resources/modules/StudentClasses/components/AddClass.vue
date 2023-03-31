@@ -32,16 +32,16 @@ const submit = (event: any) => {
     );
     const form = { year, name, quantity };
     console.log(form)
-   // register(form);
+    save(form);
 };
 const router = useRouter();
 const save = async (data: any) => {
     await axios
-        .post("/api/addClass", data)
+        .post("/api/createOrUpdateClass", data)
         .then(() => {
                 router.push("/");
         })
-};
+}; 
 </script>
 <style scoped>
 .input-grid {

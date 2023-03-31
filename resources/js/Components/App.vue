@@ -27,12 +27,19 @@ const items = ref([
                 command: () => {
                     router.push("/add-class");
                 },
-            },
+            }, 
             {
                 label: "Add subject",
                 icon: "pi pi-plus",
                 command: () => {
-                    router.push("/add-subject");
+                    router.push("/add-subject");  
+                },
+            },
+            {
+                label: "Add student",
+                icon: "pi pi-plus",
+                command: () => {
+                    router.push("/add-student");  
                 },
             },
         ],

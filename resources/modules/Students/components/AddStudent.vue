@@ -2,8 +2,8 @@
     <div class="flex justify-content-center">
         <form @submit.prevent="submit">
             <div class="input-grid">
-                <div><h1>Create new subject</h1></div>
-                <div v-for="input in subjectForm">
+                <div><h1>Create new student</h1></div>
+                <div v-for="input in studentForm">
                     <InputText
                         :name="input.name"
                         :type="input.type"
@@ -21,20 +21,22 @@
     </div>
 </template>
 <script setup lang="ts">
-import { subjectForm } from "../consts/subjectForm";
+import { studentForm } from "../consts/studentForm";
 import axios from "axios";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 
 const submit = (event: any) => {
-    const { name, year } = Object.fromEntries(new FormData(event.target));
-    const form = { name, year };
+    const { name, surname, year } = Object.fromEntries(
+        new FormData(event.target)
+    );
+    const form = { name, surname, year };
     console.log(form);
-     save(form);
+    save(form);
 };
 const router = useRouter();
 const save = async (data: any) => {
-    await axios.post("/api/createOrUpdateSubject", data).then(() => {
+    await axios.post("/api/createOrUpdateStudent", data).then(() => {
         router.push("/");
     });
 };
