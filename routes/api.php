@@ -32,5 +32,5 @@ Route::get('/getClasses', [ClassController::class, 'getClasses']);
 
 Route::post('/createOrUpdateSubject', [SubjectController::class, 'createOrUpdateSubject']);
 
-
+Route::get('/getStudents', [StudentController::class, 'getStudents']);
 Route::post('/createOrUpdateStudent', [StudentController::class, 'createOrUpdateStudent']);
