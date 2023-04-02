@@ -10,3 +10,14 @@ body {
 .black-txt {
  color: black;
 }
+.side-box {
+  background-color: #AD8E70;
+  width: 250px;
+  padding: 10px;
+}
+.add-button {
+  background-color: #FFEBB7 !important;
+  color: black !important;
+  border: none !important;
+  width: 200px;
+}
