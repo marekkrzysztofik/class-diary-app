@@ -1,0 +1,12 @@
+body {
+  background-color: #FFEBB7;
+}
+.logo {
+  width: 100px;
+}
+.no-decoration {
+  text-decoration: none;
+}
+.black-txt {
+ color: black;
+}

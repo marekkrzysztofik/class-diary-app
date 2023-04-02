@@ -1,7 +1,19 @@
 <template>
-    <div class="flex m-3">
-        <PanelMenu :model="items" class="w-min" />
+    <div class="flex justify-content-around align-items-center">
+        <div>
+            <router-link to="/teachers" class="no-decoration black-txt">
+               <h1 class="m-auto">Teachers</h1></router-link>
+        </div>
+        <div>
+            <router-link to="/">
+                <img src="@/images/writing.png" alt="logo" class="logo"
+            /></router-link>
+        </div>
+        <div class="">
+            <PanelMenu :model="items" class="w-min siema" />
+        </div>
     </div>
+
     <router-view />
 </template>
 <script setup lang="ts">
@@ -27,22 +39,28 @@ const items = ref([
                 command: () => {
                     router.push("/add-class");
                 },
-            }, 
+            },
             {
                 label: "Add subject",
                 icon: "pi pi-plus",
                 command: () => {
-                    router.push("/add-subject");  
+                    router.push("/add-subject");
                 },
             },
             {
                 label: "Add student",
                 icon: "pi pi-plus",
                 command: () => {
-                    router.push("/add-student");  
+                    router.push("/add-student");
                 },
             },
         ],
     },
 ]);
 </script>
+<style scoped>
+.siema {
+    position: absolute !important;
+    top: 30px;
+}
+</style>
