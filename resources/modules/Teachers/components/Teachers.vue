@@ -19,6 +19,7 @@
                     <div><h1>Edit teacher</h1></div>
                     <div class="center">
                         <InputText
+                            name="name"
                             placeholder="Name"
                             type="text"
                             class="m-3"
@@ -27,6 +28,7 @@
                     </div>
                     <div>
                         <InputText
+                            name="surname"
                             placeholder="Surname"
                             type="text"
                             class="m-3"
@@ -35,6 +37,7 @@
                     </div>
                     <div>
                         <InputText
+                            name="email"
                             placeholder="Email"
                             type="text"
                             class="m-3"
@@ -59,15 +62,16 @@ import axios from "axios";
 const { getTeachers, teachers } = useGetTeachers();
 const router = useRouter();
 const teacher = ref({
+    id: "",
     name: "",
     surname: "",
     email: "",
 });
+
 onMounted(async () => {
     getTeachers();
     getTeacherById();
 });
-
 const getTeacherById = async (id: number = 1) => {
     const response = await axios.get(`/api/getTeacherById/${id}`);
     teacher.value = response.data;
@@ -77,19 +81,17 @@ const editTeacher = (id: number) => {
     getTeacherById(id);
 };
 const submit = (event: any) => {
-    const { name, surname, email, password, c_password } = Object.fromEntries(
+    const id = teacher.value.id;
+    const { name, surname, email } = Object.fromEntries(
         new FormData(event.target)
     );
-    const form = { name, surname, email, password, c_password };
-    register(form);
+    const form = { id, name, surname, email };
+    console.log(form);
+    save(form);
 };
-const register = async (data: any) => {
-    await axios.post("/api/register", data).then((response) => {
-        const registerResponse = response.data;
-        if (registerResponse.success) {
-            localStorage.setItem("token", registerResponse.data.token);
-            router.push("/");
-        }
+const save = async (data: any) => {
+    await axios.post("/api/registerOrUpdateTeacher", data).then(() => {
+        router.push("/");
     });
 };
 </script>
