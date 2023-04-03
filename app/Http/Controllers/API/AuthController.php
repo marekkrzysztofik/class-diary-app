@@ -98,4 +98,4 @@ class AuthController extends Controller
         return Teacher::all();
     }
 }
- 
+  

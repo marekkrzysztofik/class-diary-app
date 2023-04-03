@@ -19,5 +19,9 @@ class TeacherRepository
     {
         $teacher->save();
     }
+    public function update($teacher)
+    {
+        $teacher->update();
+    }
 }
  

@@ -3,13 +3,14 @@
         <form @submit.prevent="submit">
             <div class="input-grid">
                 <div><h1>Register new teacher</h1></div>
-                <div v-for="input in teacherForm">
-                    <InputText
-                        :name="input.name"
-                        :type="input.type"
-                        :placeholder="input.placeholder"
-                        class="m-3"
-                    />
+                <div>
+                    <InputText placeholder="name" type="text" class="m-3" />
+                </div>
+                <div>
+                    <InputText placeholder="name" type="text" class="m-3" />
+                </div>
+                <div>
+                    <InputText placeholder="name" type="text" class="m-3" />
                 </div>
                 <Button
                     type="submit"
@@ -22,30 +23,25 @@
 </template>
 <script setup lang="ts">
 import { onMounted } from "vue";
-import { teacherForm } from "../consts/teacherForm";
 import axios from "axios";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 
 const props = defineProps({
     id: {
-        type: String,
-        default: "",
+        type: Number,
+        default: 1,
     },
 });
 onMounted(async () => {
     getTeacherById();
-    
 });
- 
-const siema = ref();
+
+
 const teacher = ref();
 const getTeacherById = async () => {
     const response = await axios.get(`/api/getTeacherById/${props.id}`);
     teacher.value = response.data;
-    siema.value = Object.values(teacher.value);
-    console.log(siema);
-    
 };
 
 const submit = (event: any) => {

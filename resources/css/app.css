@@ -1,5 +1,5 @@
 body {
-  background-color: #FFEBB7;
+  background-color: #e5ebf1;
 }
 .logo {
   width: 100px;
@@ -11,13 +11,21 @@ body {
  color: black;
 }
 .side-box {
-  background-color: #AD8E70;
+  background-color: #7C99AC;
   width: 250px;
   padding: 10px;
+  height: 550px;
 }
 .add-button {
-  background-color: #FFEBB7 !important;
+  background-color: #e5ebf1 !important;
   color: black !important;
   border: none !important;
   width: 200px;
+}
+.bold:hover {
+  font-weight: 900;
+  cursor: pointer;
+}
+.m-0-15 {
+  margin: 5% 15%;
 }

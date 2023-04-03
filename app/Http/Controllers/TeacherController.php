@@ -14,10 +14,12 @@ class TeacherController extends Controller
     {
         $this->teacherService = $teacherService;
     }
-    
+    public function registerOrUpdateTeacher(Request $data)
+    {
+        $this->teacherService->registerOrUpdateTeacher($data);
+    }
     public function getTeacherById($id)
     {
         return $this->teacherService->getTeacherById($id);
     }
-
-} 
+}
