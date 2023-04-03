@@ -1,10 +1,11 @@
 import { createRouter, createWebHistory, RouteRecordRaw  } from "vue-router";
 import Home from "resources/js/Components/Home.vue";
-import AddTeacher from "@/resources/modules/Teachers/components/AddTeacher.vue"
-import AddClass from 'resources/modules/StudentClasses/components/AddClass.vue'
-import AddSubject from 'resources/modules/Subjects/components/AddSubject.vue'
-import AddActivity from 'resources/modules/Activities/components/AddActivity.vue'
-import AddStudent from 'resources/modules/Students/components/AddStudent.vue'
+
+import teacherRoutes from '@/resources/modules/Teachers/consts/teacherRoutes'
+import studentRoutes from 'resources/modules/Students/consts/studentRoutes'
+import classRoutes from 'resources/modules/StudentClasses/consts/classRoutes'
+import activityRoutes from 'resources/modules/Activities/consts/activityRoutes'
+import subjectRoutes from 'resources/modules/Subjects/consts/subjectRoutes'
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -15,31 +16,11 @@ const routes: Array<RouteRecordRaw> = [
             requiresAuth: false,
         },
     },
-    {
-      path: "/add-teacher", 
-      component: AddTeacher,
-      name: "AddTeacher",
-  },
-  {
-    path: "/add-class",
-    component: AddClass,
-    name: "AddClass",
-},
-{
-    path: "/add-subject",
-    component: AddSubject,
-    name: "AddSubject",
-},
-{
-    path: "/add-activity",
-    component: AddActivity,
-    name: "AddActivity",
-},
-{
-    path: "/add-student",
-    component: AddStudent,
-    name: "AddStudent",
-},
+...subjectRoutes,
+...activityRoutes,
+...classRoutes,
+...studentRoutes,
+...teacherRoutes
 ];
 const router = createRouter({
     history: createWebHistory(),

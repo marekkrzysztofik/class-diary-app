@@ -40,10 +40,10 @@ class StudentService
     $studentsArray = $data->all();
     foreach ($studentsArray as $student) {
       $studentWithClass = Student::find($student['id']);
-      $studentWithClass->class_id = $data['class_id'];
-      $studentWithClass->name = $data['name'];
-      $studentWithClass->surname = $data['surname'];
-      $studentWithClass->year = $data['year'];
+      $studentWithClass->class_id = $student['class_id'];
+      $studentWithClass->name = $student['name'];
+      $studentWithClass->surname = $student['surname'];
+      $studentWithClass->year = $student['year'];
       $this->studentRepository->update($studentWithClass);
     }
   }
