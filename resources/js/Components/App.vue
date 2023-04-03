@@ -1,8 +1,12 @@
 <template>
-    <div class="flex justify-content-around align-items-center">
+    <div class="flex justify-content-between align-items-center">
         <div>
             <router-link to="/teachers" class="no-decoration black-txt">
                <h1 class="m-auto">Teachers</h1></router-link>
+        </div>
+        <div>
+            <router-link to="/classes" class="no-decoration black-txt">
+               <h1 class="m-auto">Classes</h1></router-link>
         </div>
         <div>
             <router-link to="/">
@@ -34,13 +38,6 @@ const items = ref([
                 },
             },
             {
-                label: "Add class",
-                icon: "pi pi-plus",
-                command: () => {
-                    router.push("/add-class");
-                },
-            },
-            {
                 label: "Add subject",
                 icon: "pi pi-plus",
                 command: () => {
@@ -62,5 +59,6 @@ const items = ref([
 .siema {
     position: absolute !important;
     top: 30px;
+    right: 50px;
 }
 </style>

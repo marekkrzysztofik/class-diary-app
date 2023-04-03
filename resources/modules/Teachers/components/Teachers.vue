@@ -59,9 +59,11 @@ import { onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
 import { useGetTeachers } from "resources/modules/Teachers/composables/useGetTeachers";
 import axios from "axios";
+import { Teacher } from "resources/types/teachers";
+
 const { getTeachers, teachers } = useGetTeachers();
 const router = useRouter();
-const teacher = ref({
+const teacher = ref<Teacher>({
     id: "",
     name: "",
     surname: "",
@@ -81,7 +83,7 @@ const editTeacher = (id: number) => {
     getTeacherById(id);
 };
 const submit = (event: any) => {
-    const id = teacher.value.id;
+    const id: number = teacher.value.id;
     const { name, surname, email } = Object.fromEntries(
         new FormData(event.target)
     );
